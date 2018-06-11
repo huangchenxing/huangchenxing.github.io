@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>maven创建springMVC项目： | 尘心 blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="尘心,尘心 Blog" />
+  
+  <meta name="description" content="一、在eclipse中创建maven-archetype-webapp项目1.新建项目选择maven项目  2.默认，下一步  3.选择maven-archetype-webapp,其他保持默认即可  4.如下填写完成后，点击完成即可  5.创建完成后的maven项目结构如下  其中index.jsp报错，错误信息：Multiple annotations found at this line:">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maven创建springMVC项目：">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/springMVC/index.html">
+<meta property="og:site_name" content="尘心 blog">
+<meta property="og:description" content="一、在eclipse中创建maven-archetype-webapp项目1.新建项目选择maven项目  2.默认，下一步  3.选择maven-archetype-webapp,其他保持默认即可  4.如下填写完成后，点击完成即可  5.创建完成后的maven项目结构如下  其中index.jsp报错，错误信息：Multiple annotations found at this line:">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC1.jpg">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC2.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC3.jpg">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC4.jpg">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC5.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC6.jpg">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC7.jpg">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC8.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC9.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC10.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC11.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC12.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC13.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC14.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC15.jpg">
+<meta property="og:image" content="https://huangchenxing.github.io/images/springMVC/springMVC16.jpg">
+<meta property="og:updated_time" content="2018-06-11T11:20:00.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="maven创建springMVC项目：">
+<meta name="twitter:description" content="一、在eclipse中创建maven-archetype-webapp项目1.新建项目选择maven项目  2.默认，下一步  3.选择maven-archetype-webapp,其他保持默认即可  4.如下填写完成后，点击完成即可  5.创建完成后的maven项目结构如下  其中index.jsp报错，错误信息：Multiple annotations found at this line:">
+<meta name="twitter:image" content="https://huangchenxing.github.io/images/springMVC/springMVC1.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">尘心 Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        尘心 Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        为有牺牲多壮志 敢叫日月换新天
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="home" target="_blank" href="//localhost:4000">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/huangchenxing">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-springMVC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      maven创建springMVC项目：
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Java/">Java</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-03-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="一、在eclipse中创建maven-archetype-webapp项目"><a href="#一、在eclipse中创建maven-archetype-webapp项目" class="headerlink" title="一、在eclipse中创建maven-archetype-webapp项目"></a>一、在eclipse中创建maven-archetype-webapp项目</h3><pre><code>1.新建项目选择maven项目
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC1.jpg" alt="springMVC1"></p>
+<pre><code>2.默认，下一步
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC2.png" alt="springMVC2"></p>
+<pre><code>3.选择maven-archetype-webapp,其他保持默认即可
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC3.jpg" alt="springMVC3"></p>
+<pre><code>4.如下填写完成后，点击完成即可
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC4.jpg" alt="springMVC4"></p>
+<pre><code>5.创建完成后的maven项目结构如下
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC5.png" alt="springMVC5"></p>
+<pre><code>其中index.jsp报错，错误信息：Multiple annotations found at this line: - The superclass &quot;javax.servlet.http.HttpServlet&quot; was not found on the Java
+</code></pre><p>　　意思是缺少servlet包，我们可以导入javax.servlet-api-3.1.0.jar包，我们可以用两种方式来处理：</p>
+<p>　　    1&gt; 在pom.xml中的dependencies中加入依赖包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<pre><code>2&gt; 可以在build path中添加tomcat 库，如下
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC6.jpg" alt="springMVC6"></p>
+<pre><code>点击next出现下面界面，如下操作
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC7.jpg" alt="springMVC7"></p>
+<pre><code>至此，一个正常的maven web项目已经建好，如下：
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC8.png" alt="springMVC8"></p>
+<h3 id="二、配置springMVC"><a href="#二、配置springMVC" class="headerlink" title="二、配置springMVC"></a>二、配置springMVC</h3><pre><code>1.在pom.xml中添加对spring的依赖
+</code></pre><p>　　　　pom.xml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">    &lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">  xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.test&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;HelloSpringMVC&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;war&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;name&gt;HelloSpringMVC Maven Webapp&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">      &lt;spring.version&gt;4.1.1.RELEASE&lt;/spring.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.8.1&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-web&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;finalName&gt;HelloSpringMVC&lt;/finalName&gt;</span><br><span class="line">  &lt;/build&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
+<pre><code>保存后会下载对应的jar文件
+</code></pre><p>　　2.编辑web.xml文件</p>
+<p> 　     web.xml内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-app version=<span class="string">"3.0"</span> xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></span><br><span class="line">    xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee </span></span><br><span class="line"><span class="string">    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span>&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">      &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</span><br><span class="line">      &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">          &lt;init-param&gt;</span><br><span class="line">             &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">          &lt;param-value&gt;classpath:springContext.xml&lt;/param-value&gt;</span><br><span class="line">      &lt;/init-param&gt;</span><br><span class="line">      &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">      &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</span><br><span class="line">      &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;context-param&gt;</span><br><span class="line">      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">      &lt;param-value&gt;classpath:springContext.xml&lt;/param-value&gt;</span><br><span class="line">  &lt;/context-param&gt;</span><br><span class="line">  &lt;listener&gt;</span><br><span class="line">      &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">  &lt;/listener&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure></p>
+<pre><code>3.创建springContext.xml文件，在src/main/resources包中创建springContext.xml文件，如图：
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC9.png" alt="springMVC9"></p>
+<pre><code>springContxt.xml内容
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">    xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></span><br><span class="line">    xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"</span></span><br><span class="line"><span class="string">http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</span></span><br><span class="line"><span class="string">http://www.springframework.org/schema/context</span></span><br><span class="line"><span class="string">http://www.springframework.org/schema/context/spring-context-3.0.xsd"</span>&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 搜索spring控件 --&gt;</span><br><span class="line">    &lt;context:component-scan base-package=<span class="string">"com.test"</span>&gt;&lt;/context:component-scan&gt;</span><br><span class="line">    &lt;!-- 视图页面配置 --&gt;</span><br><span class="line">    &lt;bean class=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span><br><span class="line">        &lt;property name=<span class="string">"prefix"</span>&gt;</span><br><span class="line">            &lt;value&gt;/WEB-INF/views/&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property name=<span class="string">"suffix"</span>&gt;</span><br><span class="line">            &lt;value&gt;.jsp&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>在springContext.xml中，base-package是指定spring控制器控件的包，前缀指定的是视图目录，被设置为/WEB-INF/views，即视图目录被放到WEB-INF下。后缀指定的是视图的扩展名。例如，&quot;hellospring&quot;视图，将被放到/WEB-INF/views/hellospring.jsp。
+
+
+
+4. 创建Spring控制器和视图
+</code></pre><p>　　创建HelloSpringController.java类，在src/main/java包中，如下图：<br><img src="https://huangchenxing.github.io/images/springMVC/springMVC10.png" alt="springMVC10"><br>    HelloSpringController.java<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package com.test;</span><br><span class="line"></span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line">import org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">@Controller</span><br><span class="line">public class HelloSpringController &#123;</span><br><span class="line">    String message = <span class="string">"Welcome to Spring MVC!"</span>;</span><br><span class="line"> </span><br><span class="line">    @RequestMapping(<span class="string">"/hello"</span>)</span><br><span class="line">    public ModelAndView showMessage(@RequestParam(value = <span class="string">"name"</span>, required = <span class="literal">false</span>, defaultValue = <span class="string">"Spring"</span>) String name) &#123;</span><br><span class="line"> </span><br><span class="line">        ModelAndView mv = new ModelAndView(<span class="string">"hellospring"</span>);//指定视图</span><br><span class="line">　　　　　//向视图中添加所要展示或使用的内容，将在页面中使用</span><br><span class="line">        mv.addObject(<span class="string">"message"</span>, message);</span><br><span class="line">        mv.addObject(<span class="string">"name"</span>, name);</span><br><span class="line">        <span class="built_in">return</span> mv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>在上面的代码中，@Controller注解为Spring标注前置控制器的方式，@RequestMapping注解映射web请求到具体要操作的类或者方法上面，@RequestMapping注解既可以用到类上，也可以用到方法上，在此不再详述，如有疑问，可以百度。@RequestParam注解为请求指定参数。这种方式提供了一个一致 的编程风格。
+</code></pre><p>　　另外上述代码中ModelAndView类指定具体的视图，这里是”hellospring”，由于我们在springContext.xml配置了视图的前后缀，所以在这里只需要写出视图的具体名称即可，其具体指定的就是：前缀+视图名称+后缀，即完整的视图路径/WEB-INF/views/hellospring.jsp，也就是所要展示的视图的位置。</p>
+<p>　　项目首页index.jsp内容<br><img src="https://huangchenxing.github.io/images/springMVC/springMVC11.png" alt="springMVC11"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Spring 4 MVC - HelloWorld Index Page&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;center&gt;</span><br><span class="line">        &lt;h2&gt;Hello World&lt;/h2&gt;</span><br><span class="line">        &lt;h3&gt;</span><br><span class="line">            &lt;a href=<span class="string">"hello?name=zhangsan"</span>&gt;点击跳转&lt;/a&gt;</span><br><span class="line">        &lt;/h3&gt;</span><br><span class="line">    &lt;/center&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<pre><code>上述代码中，点击跳转 的链接其实就是我们HelloSpringController.java中定义的控制器的一个@RequestMapping注解方法，name=zhangsan为showMessage接受的参数。
+</code></pre><p>　　在/WEB-INF/views/下创建hellospring.jsp视图，如图：<br><img src="https://huangchenxing.github.io/images/springMVC/springMVC12.png" alt="springMVC12"><br>    hellospring.jsp</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Spring 4 MVC -HelloWorld&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;center&gt;</span><br><span class="line">        &lt;h2&gt;Hello World&lt;/h2&gt;</span><br><span class="line">        &lt;h2&gt;</span><br><span class="line">            <span class="variable">$&#123;message&#125;</span> <span class="variable">$&#123;name&#125;</span>     &lt;/h2&gt;</span><br><span class="line">    &lt;/center&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>上述代码中显示我们在HelloSpringController.java的showMessage方法中添加的两个参数message和name,如图：
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC13.png" alt="springMVC13"></p>
+<pre><code>好，至此我们使用maven搭建springMVC的操作已经全部完成，完成后整个项目的结构如下图：
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC14.png" alt="springMVC14"></p>
+<h3 id="三、将项目部署到tomcat服务器运行"><a href="#三、将项目部署到tomcat服务器运行" class="headerlink" title="三、将项目部署到tomcat服务器运行"></a>三、将项目部署到tomcat服务器运行</h3><p>　　首页 <a href="http://localhost:8080/HelloSpringMVC/" target="_blank" rel="noopener">http://localhost:8080/HelloSpringMVC/</a>  ，其中也可以使用 <a href="http://localhost:8080/HelloSpringMVC/index.jsp" target="_blank" rel="noopener">http://localhost:8080/HelloSpringMVC/index.jsp</a> 两个效果是一样的<br><img src="https://huangchenxing.github.io/images/springMVC/springMVC15.jpg" alt="springMVC15"></p>
+<pre><code>点击跳转页
+</code></pre><p><img src="https://huangchenxing.github.io/images/springMVC/springMVC16.jpg" alt="springMVC16"></p>
+<pre><code>注意：若是跳转后页面直接显示${message} ${name}说明jstl表达式不起作用，我们可以在pom.xml中添加如下依赖：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;  </span><br><span class="line">           &lt;groupId&gt;javax.servlet&lt;/groupId&gt;  </span><br><span class="line">            &lt;artifactId&gt;jstl&lt;/artifactId&gt;  </span><br><span class="line">            &lt;version&gt;1.2&lt;/version&gt;  </span><br><span class="line">            &lt;scope&gt;runtime&lt;/scope&gt;  </span><br><span class="line">        &lt;/dependency&gt; </span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;taglibs&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;standard&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.1.2&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月11日 19:20</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/01/springMVC/" title="maven创建springMVC项目：">http://yoursite.com/2018/03/01/springMVC/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="尘心">
+                尘心
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/springMVC/&title=《maven创建springMVC项目：》 — 尘心 blog&pic=https://huangchenxing.github.io/images/springMVC/springMVC1.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/01/springMVC/&title=《maven创建springMVC项目：》 — 尘心 blog&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/01/springMVC/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven创建springMVC项目：》 — 尘心 blog&url=http://yoursite.com/2018/03/01/springMVC/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/01/springMVC/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/03/01/springMVC/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、在eclipse中创建maven-archetype-webapp项目"><span class="post-toc-text">一、在eclipse中创建maven-archetype-webapp项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、配置springMVC"><span class="post-toc-text">二、配置springMVC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、将项目部署到tomcat服务器运行"><span class="post-toc-text">三、将项目部署到tomcat服务器运行</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/03/01/hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          hexo+github搭建自己博客
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/03/01/webSocket/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">WebSocket的实现</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：1000<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：2000<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 尘心<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Frist/">Frist</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/hexo/">hexo</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Frist/" style="font-size: 10px;">Frist</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Frist/" style="font-size: 10px;">Frist</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
