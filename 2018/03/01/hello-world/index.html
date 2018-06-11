@@ -3,23 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>你好世界 | 尘心 blog</title>
+  <title>WebSocket的实现 | 尘心 blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="尘心,尘心 Blog" />
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="Second">
+  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 一.Web">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好世界">
+<meta property="og:title" content="WebSocket的实现">
 <meta property="og:url" content="http://yoursite.com/2018/03/01/hello-world/index.html">
 <meta property="og:site_name" content="尘心 blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 一.Web">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-03T05:24:49.793Z">
+<meta property="og:image" content="https://huangchenxing.github.io/images/WebSocket1.png">
+<meta property="og:image" content="https://huangchenxing.github.io/images/WebSocket2.jpg">
+<meta property="og:updated_time" content="2018-06-11T04:43:27.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好世界">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="WebSocket的实现">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 一.Web">
+<meta name="twitter:image" content="https://huangchenxing.github.io/images/WebSocket1.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -111,7 +114,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      你好世界
+      WebSocket的实现
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -119,7 +122,7 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/Second/">Second</a>
+                      <a href="/categories/Java/">Java</a>
                   
               </li>
           
@@ -141,19 +144,25 @@
       
             
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="一-WebSocket简单介绍"><a href="#一-WebSocket简单介绍" class="headerlink" title="一.WebSocket简单介绍"></a>一.WebSocket简单介绍</h3><p>随着互联网的发展，传统的HTTP协议已经很难满足Web应用日益复杂的需求了。近年来，随着HTML5的诞生，WebSocket协议被提出，它实现了浏览器与服务器的全双工通信，扩展了浏览器与服务端的通信功能，使服务端也能主动向客户端发送数据。</p>
+<p>　　我们知道，传统的HTTP协议是无状态的，每次请求（request）都要由客户端（如 浏览器）主动发起，服务端进行处理后返回response结果，而服务端很难主动向客户端发送数据；这种客户端是主动方，服务端是被动方的传统Web模式 对于信息变化不频繁的Web应用来说造成的麻烦较小，而对于涉及实时信息的Web应用却带来了很大的不便，如带有即时通信、实时数据、订阅推送等功能的应 用。在WebSocket规范提出之前，开发人员若要实现这些实时性较强的功能，经常会使用折衷的解决方法：轮询（polling）和Comet技术。其实后者本质上也是一种轮询，只不过有所改进。</p>
+<p>　　轮询是最原始的实现实时Web应用的解决方案。轮询技术要求客户端以设定的时间间隔周期性地向服务端发送请求，频繁地查询是否有新的数据改动。明显地，这种方法会导致过多不必要的请求，浪费流量和服务器资源。</p>
+<p>　　Comet技术又可以分为长轮询和流技术。长轮询改进了上述的轮询技术，减小了无用的请求。它会为某些数据设定过期时间，当数据过期后才会向服务端发送请求；这种机制适合数据的改动不是特别频繁的情况。流技术通常是指客户端使用一个隐藏的窗口与服务端建立一个HTTP长连接，服务端会不断更新连接状态以保持HTTP长连接存活；这样的话，服务端就可以通过这条长连接主动将数据发送给客户端；流技术在大并发环境下，可能会考验到服务端的性能。</p>
+<p>　　这两种技术都是基于请求-应答模式，都不算是真正意义上的实时技术；它们的每一次请求、应答，都浪费了一定流量在相同的头部信息上，并且开发复杂度也较大。</p>
+<p>　　伴随着HTML5推出的WebSocket，真正实现了Web的实时通信，使B/S模式具备了C/S模式的实时通信能力。WebSocket的工作流程是这 样的：浏览器通过JavaScript向服务端发出建立WebSocket连接的请求，在WebSocket连接建立成功后，客户端和服务端就可以通过 TCP连接传输数据。因为WebSocket连接本质上是TCP连接，不需要每次传输都带上重复的头部数据，所以它的数据传输量比轮询和Comet技术小 了很多。本文不详细地介绍WebSocket规范，主要介绍下WebSocket在Java Web中的实现。</p>
+<p>　　JavaEE 7中出了JSR-356:Java API for WebSocket规范。不少Web容器，如Tomcat,Nginx,Jetty等都支持WebSocket。Tomcat从7.0.27开始支持 WebSocket，从7.0.47开始支持JSR-356，下面的Demo代码也是需要部署在Tomcat7.0.47以上的版本才能运行。</p>
+<h3 id="二-WebSocket示例"><a href="#二-WebSocket示例" class="headerlink" title="二.WebSocket示例"></a>二.WebSocket示例</h3><h4 id="2-1-新建JavaWeb测试项目"><a href="#2-1-新建JavaWeb测试项目" class="headerlink" title="2.1.新建JavaWeb测试项目"></a>2.1.新建JavaWeb测试项目</h4><p><img src="https://huangchenxing.github.io/images/WebSocket1.png" alt="WebSocket1"></p>
+<p>  在pom.xml中添加Jar包依赖<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;javax&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;7.0&lt;/version&gt;</span><br><span class="line">        &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>  客户端（Web主页）代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> pageEncoding=<span class="string">"UTF-8"</span> %&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Java后端WebSocket的Tomcat实现&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    Welcome&lt;br/&gt;&lt;input id=<span class="string">"text"</span> <span class="built_in">type</span>=<span class="string">"text"</span>/&gt;</span><br><span class="line">    &lt;button onclick=<span class="string">"send()"</span>&gt;发送消息&lt;/button&gt;</span><br><span class="line">    &lt;hr/&gt;</span><br><span class="line">    &lt;button onclick=<span class="string">"closeWebSocket()"</span>&gt;关闭WebSocket连接&lt;/button&gt;</span><br><span class="line">    &lt;hr/&gt;</span><br><span class="line">    &lt;div id=<span class="string">"message"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    var websocket = null;</span><br><span class="line">    //判断当前浏览器是否支持WebSocket</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'WebSocket'</span> <span class="keyword">in</span> window) &#123;</span><br><span class="line">        websocket = new WebSocket(<span class="string">"ws://localhost:8080/websocket"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        alert(<span class="string">'当前浏览器 Not support websocket'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //连接发生错误的回调方法</span><br><span class="line">    websocket.onerror = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        setMessageInnerHTML(<span class="string">"WebSocket连接发生错误"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    //连接成功建立的回调方法</span><br><span class="line">    websocket.onopen = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        setMessageInnerHTML(<span class="string">"WebSocket连接成功"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //接收到消息的回调方法</span><br><span class="line">    websocket.onmessage = <span class="keyword">function</span> (event) &#123;</span><br><span class="line">        setMessageInnerHTML(event.data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //连接关闭的回调方法</span><br><span class="line">    websocket.onclose = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        setMessageInnerHTML(<span class="string">"WebSocket连接关闭"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。</span><br><span class="line">    window.onbeforeunload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        closeWebSocket();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //将消息显示在网页上</span><br><span class="line">    <span class="keyword">function</span> setMessageInnerHTML(innerHTML) &#123;</span><br><span class="line">        document.getElementById(<span class="string">'message'</span>).innerHTML += innerHTML + <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //关闭WebSocket连接</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">closeWebSocket</span></span>() &#123;</span><br><span class="line">        websocket.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //发送消息</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">send</span></span>() &#123;</span><br><span class="line">        var message = document.getElementById(<span class="string">'text'</span>).value;</span><br><span class="line">        websocket.send(message);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Java Web后端代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">package me.gacl.websocket;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.concurrent.CopyOnWriteArraySet;</span><br><span class="line"></span><br><span class="line">import javax.websocket.*;</span><br><span class="line">import javax.websocket.server.ServerEndpoint;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @ServerEndpoint 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个websocket服务器端,</span><br><span class="line"> * 注解的值将被用于监听用户连接的终端访问URL地址,客户端可以通过这个URL来连接到WebSocket服务器端</span><br><span class="line"> */</span><br><span class="line">@ServerEndpoint(<span class="string">"/websocket"</span>)</span><br><span class="line">public class WebSocketTest &#123;</span><br><span class="line">    //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。</span><br><span class="line">    private static int onlineCount = 0;</span><br><span class="line"></span><br><span class="line">    //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。若要实现服务端与单一客户端通信的话，可以使用Map来存放，其中Key可以为用户标识</span><br><span class="line">    private static CopyOnWriteArraySet&lt;WebSocketTest&gt; webSocketSet = new CopyOnWriteArraySet&lt;WebSocketTest&gt;();</span><br><span class="line"></span><br><span class="line">    //与某个客户端的连接会话，需要通过它来给客户端发送数据</span><br><span class="line">    private Session session;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 连接建立成功调用的方法</span><br><span class="line">     * @param session  可选的参数。session为与某个客户端的连接会话，需要通过它来给客户端发送数据</span><br><span class="line">     */</span><br><span class="line">    @OnOpen</span><br><span class="line">    public void onOpen(Session session)&#123;</span><br><span class="line">        this.session = session;</span><br><span class="line">        webSocketSet.add(this);     //加入<span class="built_in">set</span>中</span><br><span class="line">        addOnlineCount();           //在线数加1</span><br><span class="line">        System.out.println(<span class="string">"有新连接加入！当前在线人数为"</span> + getOnlineCount());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 连接关闭调用的方法</span><br><span class="line">     */</span><br><span class="line">    @OnClose</span><br><span class="line">    public void <span class="function"><span class="title">onClose</span></span>()&#123;</span><br><span class="line">        webSocketSet.remove(this);  //从<span class="built_in">set</span>中删除</span><br><span class="line">        subOnlineCount();           //在线数减1</span><br><span class="line">        System.out.println(<span class="string">"有一连接关闭！当前在线人数为"</span> + getOnlineCount());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 收到客户端消息后调用的方法</span><br><span class="line">     * @param message 客户端发送过来的消息</span><br><span class="line">     * @param session 可选的参数</span><br><span class="line">     */</span><br><span class="line">    @OnMessage</span><br><span class="line">    public void onMessage(String message, Session session) &#123;</span><br><span class="line">        System.out.println(<span class="string">"来自客户端的消息:"</span> + message);</span><br><span class="line">        //群发消息</span><br><span class="line">        <span class="keyword">for</span>(WebSocketTest item: webSocketSet)&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                item.sendMessage(message);</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                <span class="built_in">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 发生错误时调用</span><br><span class="line">     * @param session</span><br><span class="line">     * @param error</span><br><span class="line">     */</span><br><span class="line">    @OnError</span><br><span class="line">    public void onError(Session session, Throwable error)&#123;</span><br><span class="line">        System.out.println(<span class="string">"发生错误"</span>);</span><br><span class="line">        error.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 这个方法与上面几个方法不一样。没有用注解，是根据自己需要添加的方法。</span><br><span class="line">     * @param message</span><br><span class="line">     * @throws IOException</span><br><span class="line">     */</span><br><span class="line">    public void sendMessage(String message) throws IOException&#123;</span><br><span class="line">        this.session.getBasicRemote().sendText(message);</span><br><span class="line">        //this.session.getAsyncRemote().sendText(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static synchronized int <span class="function"><span class="title">getOnlineCount</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> onlineCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static synchronized void <span class="function"><span class="title">addOnlineCount</span></span>() &#123;</span><br><span class="line">        WebSocketTest.onlineCount++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static synchronized void <span class="function"><span class="title">subOnlineCount</span></span>() &#123;</span><br><span class="line">        WebSocketTest.onlineCount--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-1-新建JavaWeb测试项目-1"><a href="#2-1-新建JavaWeb测试项目-1" class="headerlink" title="2.1.新建JavaWeb测试项目"></a>2.1.新建JavaWeb测试项目</h4><p>  同时打开Google浏览器和<br>  火狐浏览器进行多客户端<br>  模拟测试,运行效果如下:<br><img src="https://huangchenxing.github.io/images/WebSocket2.jpg" alt="WebSocket2"></p>
+<p>本篇博客的大部分内容转载自<a href="http://blog.chenzuhuang.com/archive/28.html,然后在此基础上进行完善,在此对作者表示感谢" target="_blank" rel="noopener">http://blog.chenzuhuang.com/archive/28.html,然后在此基础上进行完善,在此对作者表示感谢</a>.</p>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年04月03日 13:24</p>
-        <p>原始链接： <a class="post-url" href="/2018/03/01/hello-world/" title="你好世界">http://yoursite.com/2018/03/01/hello-world/</a></p>
+        <p>最后更新： 2018年06月11日 12:43</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/01/hello-world/" title="WebSocket的实现">http://yoursite.com/2018/03/01/hello-world/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="尘心">
@@ -210,7 +219,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/hello-world/&title=《你好世界》 — 尘心 blog&pic=https://huangchenxing.github.io/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/hello-world/&title=《WebSocket的实现》 — 尘心 blog&pic=https://huangchenxing.github.io/images/WebSocket.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -220,7 +229,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/01/hello-world/&title=《你好世界》 — 尘心 blog&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/01/hello-world/&title=《WebSocket的实现》 — 尘心 blog&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -230,7 +239,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《你好世界》 — 尘心 blog&url=http://yoursite.com/2018/03/01/hello-world/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WebSocket的实现》 — 尘心 blog&url=http://yoursite.com/2018/03/01/hello-world/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -257,7 +266,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Second/" class="color2">Second</a>
+    <a href="/tags/Java/" class="color5">Java</a>
       
   </li>
 
@@ -270,7 +279,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-WebSocket简单介绍"><span class="post-toc-text">一.WebSocket简单介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-WebSocket示例"><span class="post-toc-text">二.WebSocket示例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-新建JavaWeb测试项目"><span class="post-toc-text">2.1.新建JavaWeb测试项目</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-新建JavaWeb测试项目-1"><span class="post-toc-text">2.1.新建JavaWeb测试项目</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -346,10 +355,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/Frist/">Frist</a><a class="category-link" href="/categories/Second/">Second</a>
+            <a class="category-link" href="/categories/Frist/">Frist</a><a class="category-link" href="/categories/Java/">Java</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Frist/" style="font-size: 10px;">Frist</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a>
+            <a href="/tags/Frist/" style="font-size: 10px;">Frist</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -382,7 +391,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Frist/" style="font-size: 10px;">Frist</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a>
+            <a href="/tags/Frist/" style="font-size: 10px;">Frist</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a>
         </div>
     </div>
 </div>
